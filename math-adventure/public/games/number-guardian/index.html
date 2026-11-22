@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نگهبان اعداد | ماجراجویان ریاضی</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <header class="topbar">
+        <button class="exit-btn" id="exitBtn">← خروج از بازی</button>
+        <div class="chapter-label">فصل اول · مرحله نهایی</div>
+        <div class="game-brand">🛡️ نگهبان اعداد</div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div class="intro-icon">⚔️</div>
+          <div>
+            <span class="eyebrow">نبرد نهایی</span>
+            <h1>آماده‌ای با غول اعداد روبه‌رو شوی؟</h1>
+            <p>به پنج چالش پاسخ بده، سپر غول را بشکن و قهرمان فصل اول شو!</p>
+          </div>
+        </section>
+
+        <section class="battle-card">
+          <div class="battle-status">
+            <div class="status-box">
+              <span>❤️ جان‌های تو</span>
+              <strong id="lives">❤️ ❤️ ❤️</strong>
+            </div>
+            <div class="status-box">
+              <span>⭐ امتیاز</span>
+              <strong id="score">۰</strong>
+            </div>
+            <div class="status-box">
+              <span>⚔️ چالش</span>
+              <strong id="questionCounter">۱ از ۵</strong>
+            </div>
+          </div>
+
+          <div class="arena">
+            <div class="guardian" id="guardian">
+              <div class="guardian-aura"></div>
+              <div class="guardian-face" id="guardianFace">👹</div>
+              <div class="guardian-name">غول اعداد</div>
+              <div class="boss-health">
+                <div class="health-label">
+                  <span>قدرت غول</span>
+                  <span id="bossHealthText">۱۰۰٪</span>
+                </div>
+                <div class="health-track">
+                  <div class="health-fill" id="bossHealth"></div>
+                </div>
+              </div>
+              <div class="damage-text" id="damageText"></div>
+            </div>
+
+            <div class="battle-message" id="battleMessage">
+              غول اعداد راه را بسته است! با پاسخ‌های درست به او حمله کن.
+            </div>
+          </div>
+
+          <div class="progress-area">
+            <div class="progress-info">
+              <span>پیشرفت نبرد</span>
+              <span id="progressText">۰٪</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <section class="question-panel">
+            <div class="question-tag" id="questionTag">چالش اول</div>
+            <h2 id="questionText">...</h2>
+            <div class="options" id="options"></div>
+            <div class="feedback" id="feedback" aria-live="polite"></div>
+            <button class="next-btn" id="nextBtn" disabled>چالش بعدی ←</button>
+          </section>
+        </section>
+      </main>
+
+      <footer>ماجراجویان ریاضی · یاد بگیر، بازی کن، قهرمان شو!</footer>
+    </div>
+
+    <div class="result-overlay hidden" id="resultOverlay">
+      <div class="result-card">
+        <div class="result-icon" id="resultIcon">🏆</div>
+        <span class="eyebrow">پایان نبرد</span>
+        <h2 id="resultTitle">آفرین قهرمان!</h2>
+        <p id="resultDescription"></p>
+
+        <div class="result-stats">
+          <div>
+            <strong id="finalScore">۰</strong>
+            <span>امتیاز</span>
+          </div>
+          <div>
+            <strong id="finalCorrect">۰ از ۵</strong>
+            <span>پاسخ درست</span>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="restart-btn" id="restartBtn">🔄 تلاش دوباره</button>
+          <button class="home-btn" id="homeBtn">🏠 خروج</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

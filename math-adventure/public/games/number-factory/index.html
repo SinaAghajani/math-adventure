@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#312e81" />
+
+    <title>کارخانه اعداد | ماجراجویان ریاضی</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <main class="game-container">
+      <header class="game-header">
+        <a href="/" class="back-button" id="backButton">
+          <span>←</span>
+          خروج
+        </a>
+
+        <div class="game-brand">
+          <span class="brand-icon">🏭</span>
+          <div>
+            <h1>کارخانه اعداد</h1>
+            <p>ماجراجویان ریاضی</p>
+          </div>
+        </div>
+
+        <div class="level-badge">
+          مرحله <span id="levelNumber">۱</span>
+          از ۵
+        </div>
+      </header>
+
+      <section class="status-bar">
+        <div class="status-item">
+          <span class="status-icon">⭐</span>
+          <div>
+            <small>امتیاز</small>
+            <strong id="score">۰</strong>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-icon">🎯</span>
+          <div>
+            <small>پاسخ درست</small>
+            <strong id="correctCount">۰</strong>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-icon">❤️</span>
+          <div>
+            <small>فرصت باقی‌مانده</small>
+            <strong id="lives">۳</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="progress-section">
+        <div class="progress-info">
+          <span>پیشرفت مأموریت</span>
+          <span id="progressText">۰٪</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </section>
+
+      <section class="game-intro">
+        <div class="intro-icon">🧙🏻‍♂️</div>
+
+        <div>
+          <h2>به کارخانه اعداد خوش آمدی!</h2>
+          <p>
+            استاد کارخانه به کمک تو نیاز دارد. رقم‌ها را در جای درست قرار بده تا
+            عددهای بزرگ ساخته شوند!
+          </p>
+        </div>
+      </section>
+
+      <section class="mission-card">
+        <div class="mission-header">
+          <div>
+            <span class="mission-label">مأموریت جدید</span>
+            <h2>عدد موردنظر را بساز!</h2>
+          </div>
+
+          <span class="mission-icon">🔢</span>
+        </div>
+
+        <p class="mission-description">
+          کارخانه این عدد را از مجموع عبارت‌های زیر تولید می‌کند. رقم‌های مناسب
+          را در جایگاه درست قرار بده.
+        </p>
+
+        <div class="expanded-number" id="expandedNumber">
+          در حال آماده‌سازی مأموریت...
+        </div>
+
+        <div class="place-value-title">
+          <span>جدول ارزش مکانی</span>
+          <span class="hint-text"
+            >برای قرار دادن رقم، ابتدا روی آن و سپس روی خانه موردنظر بزن.</span
+          >
+        </div>
+
+        <div class="place-value-wrapper">
+          <div class="place-value-grid" id="placeValueGrid"></div>
+        </div>
+
+        <div class="tiles-section">
+          <div class="tiles-header">
+            <h3>🧩 قطعه‌های عدد</h3>
+            <span>رقم‌ها را انتخاب کن</span>
+          </div>
+
+          <div class="digit-tiles" id="digitTiles"></div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="reset-button" id="resetButton">↻ پاک کردن</button>
+
+          <button class="check-button" id="checkButton">
+            بررسی عدد
+            <span>✓</span>
+          </button>
+        </div>
+
+        <div class="feedback" id="feedback" aria-live="polite">
+          منتظر ساخت عدد هستیم!
+        </div>
+      </section>
+
+      <section class="help-card">
+        <div class="help-icon">💡</div>
+
+        <div>
+          <h3>راهنمای استاد کارخانه</h3>
+          <p>
+            هر خانه ارزش متفاوتی دارد. مثلاً رقم ۵ در مرتبه میلیون، ارزش پنج
+            میلیون را نشان می‌دهد.
+          </p>
+        </div>
+      </section>
+
+      <footer class="game-footer">
+        <span>🧭 ماجراجویان ریاضی</span>
+        <span>طراحی آموزشی برای دانش‌آموزان پایه پنجم</span>
+      </footer>
+    </main>
+
+    <div class="modal-overlay hidden" id="resultModal">
+      <div class="result-modal">
+        <div class="result-emoji" id="resultEmoji">🏆</div>
+
+        <h2 id="resultTitle">آفرین قهرمان!</h2>
+
+        <p id="resultDescription">
+          تو مأموریت کارخانه اعداد را به پایان رساندی.
+        </p>
+
+        <div class="final-score">
+          <span>امتیاز نهایی</span>
+          <strong id="finalScore">۰</strong>
+        </div>
+
+        <div class="result-actions">
+          <button class="check-button" id="restartButton">بازی دوباره</button>
+
+          <button class="reset-button" id="exitButton">بازگشت به سایت</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

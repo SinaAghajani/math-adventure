@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بازار زمان | ماجراجویان ریاضی</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header class="topbar">
+        <a href="/" class="exit-btn" id="exitBtn">خروج از بازی ↩</a>
+        <div class="brand">⏳ ماجراجویان ریاضی</div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-icon">🕰️</div>
+        <div>
+          <span class="eyebrow">ماجراجویی سوم | فصل اول</span>
+          <h1>بازار زمان</h1>
+          <p>ساعت‌ها را تنظیم کن، زمان را حساب کن و جایزه بگیر!</p>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat">
+          <span>⭐ امتیاز</span>
+          <strong id="score">۰</strong>
+        </div>
+        <div class="stat">
+          <span>🛍️ سفارش</span>
+          <strong id="mission">۱ از ۵</strong>
+        </div>
+        <div class="stat">
+          <span>❤️ فرصت‌ها</span>
+          <strong id="lives">❤️❤️❤️</strong>
+        </div>
+      </section>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progress"></div>
+      </div>
+
+      <main class="game-card">
+        <div class="mission-heading">
+          <span class="mission-tag" id="missionTag">سفارش اول</span>
+          <span class="difficulty">⏱️ چالش زمان</span>
+        </div>
+
+        <div class="question-icon" id="questionIcon">⏰</div>
+        <div class="customer" id="customer">مشتری امروز: ساعت‌ساز مهربان</div>
+
+        <h2 id="question">آماده‌ای سفارش اول را انجام بدهی؟</h2>
+        <p class="question-description" id="description">
+          پاسخ درست را انتخاب کن و سفارش را تحویل بده.
+        </p>
+
+        <div class="options" id="options"></div>
+
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+
+        <button class="main-btn" id="nextBtn" disabled>سفارش بعدی ←</button>
+      </main>
+
+      <section class="hint">
+        <span>💡</span>
+        <p>یادت باشد: هر ساعت ۶۰ دقیقه و هر دقیقه ۶۰ ثانیه است.</p>
+      </section>
+
+      <div class="result-screen hidden" id="resultScreen">
+        <div class="result-box">
+          <div class="result-icon" id="resultIcon">🏆</div>
+          <h2 id="resultTitle">آفرین قهرمان!</h2>
+          <p id="resultMessage"></p>
+
+          <div class="final-score">
+            <span>امتیاز نهایی</span>
+            <strong id="finalScore">۰</strong>
+          </div>
+
+          <div class="result-details" id="resultDetails"></div>
+
+          <button class="main-btn" id="restartBtn">🔄 بازی دوباره</button>
+          <button class="secondary-btn" id="finishBtn">
+            بازگشت به نقشه ماجراجویی
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

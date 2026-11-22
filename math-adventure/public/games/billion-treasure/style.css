@@ -1,0 +1,422 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --navy: #172554;
+  --blue: #2563eb;
+  --gold: #fbbf24;
+  --purple: #7c3aed;
+  --green: #16a34a;
+  --red: #dc2626;
+  --text: #1e293b;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Vazirmatn", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, #dbeafe 0, transparent 30%),
+    radial-gradient(circle at 90% 90%, #ede9fe 0, transparent 35%),
+    #f1f5f9;
+}
+
+button, a {
+  font: inherit;
+}
+
+.game-container {
+  width: min(920px, 100%);
+  margin: auto;
+  padding: 22px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.brand {
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.exit-btn {
+  text-decoration: none;
+  color: #475569;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 25px;
+  border-radius: 25px;
+  color: white;
+  background: linear-gradient(120deg, #172554, #4338ca, #7c3aed);
+  box-shadow: 0 15px 35px #312e8140;
+}
+
+.treasure-icon {
+  width: 105px;
+  height: 105px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 58px;
+  background: #ffffff20;
+  border: 2px solid #ffffff40;
+  border-radius: 25px;
+}
+
+.eyebrow {
+  color: #fde68a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 5px 0;
+  font-size: clamp(25px, 5vw, 38px);
+  font-weight: 900;
+}
+
+.hero p {
+  margin: 0;
+  color: #e0e7ff;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0 15px;
+}
+
+.stat {
+  padding: 13px;
+  text-align: center;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.stat strong {
+  font-size: 19px;
+  color: var(--navy);
+}
+
+.progress-track {
+  height: 10px;
+  background: #dbeafe;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #8b5cf6, #fbbf24);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.game-card {
+  padding: 28px;
+  border-radius: 25px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 35px #0f172a0d;
+}
+
+.mission-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.mission-tag {
+  padding: 7px 13px;
+  border-radius: 30px;
+  color: #6d28d9;
+  background: #f3e8ff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.difficulty {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.question-icon {
+  text-align: center;
+  font-size: 48px;
+  margin: 24px 0 10px;
+}
+
+.game-card h2 {
+  text-align: center;
+  color: var(--navy);
+  font-size: clamp(19px, 4vw, 25px);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.question-description {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin: 8px 0 25px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.option {
+  min-height: 65px;
+  padding: 13px;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  background: #f8fafc;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s;
+  line-height: 1.9;
+}
+
+.option:hover:not(:disabled) {
+  border-color: #818cf8;
+  background: #eef2ff;
+  transform: translateY(-2px);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.option.correct {
+  border-color: #22c55e;
+  color: #166534;
+  background: #dcfce7;
+}
+
+.option.wrong {
+  border-color: #ef4444;
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.feedback {
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 10px 14px;
+  border-radius: 13px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.9;
+}
+
+.feedback:empty {
+  display: none;
+}
+
+.feedback.success {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.feedback.error {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.main-btn, .secondary-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.main-btn {
+  color: white;
+  background: linear-gradient(110deg, #4f46e5, #7c3aed);
+  box-shadow: 0 7px 18px #4f46e533;
+}
+
+.main-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.main-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.secondary-btn {
+  margin-top: 10px;
+  color: #475569;
+  background: #f1f5f9;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-top: 18px;
+  border-radius: 15px;
+  color: #854d0e;
+  background: #fef3c7;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.hint span {
+  font-size: 25px;
+}
+
+.hint p {
+  margin: 0;
+}
+
+.result-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #0f172acc;
+  overflow-y: auto;
+}
+
+.result-screen.hidden {
+  display: none;
+}
+
+.result-box {
+  width: min(440px, 100%);
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 20px 60px #0004;
+}
+
+.result-icon {
+  font-size: 65px;
+}
+
+.result-box h2 {
+  color: var(--navy);
+  margin: 10px 0;
+}
+
+.result-box p {
+  color: var(--muted);
+  line-height: 2;
+}
+
+.final-score {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 16px;
+  background: #fef3c7;
+}
+
+.final-score span {
+  display: block;
+  color: #92400e;
+  font-size: 13px;
+}
+
+.final-score strong {
+  display: block;
+  color: #78350f;
+  font-size: 35px;
+}
+
+.result-details {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+@media (max-width: 600px) {
+  .game-container {
+    padding: 13px;
+  }
+
+  .hero {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .treasure-icon {
+    width: 75px;
+    height: 75px;
+    font-size: 42px;
+    border-radius: 18px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .game-card {
+    padding: 18px;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .option {
+    min-height: 55px;
+  }
+
+  .stat {
+    padding: 10px 5px;
+  }
+
+  .stat strong {
+    font-size: 16px;
+  }
+}
